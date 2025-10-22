@@ -26,8 +26,9 @@
             cursor: grab;
             overflow-x: scroll; /* Enable horizontal scrolling */
             user-select: none;
-            -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-            mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+            /* Efek mask/shadow dihapus untuk tampilan mobile yang lebih bersih */
+            /* -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); */
+            /* mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); */
             scrollbar-width: none; /* Hide scrollbar for Firefox */
         }
 
@@ -43,6 +44,9 @@
             display: flex;
             gap: 1.5rem; /* 24px */
             /* The lg:justify-center class added in the HTML will center the content on large screens */
+            /* Menambahkan padding horizontal agar kartu tidak menempel di tepi layar mobile */
+            padding-left: 1rem; /* 16px */
+            padding-right: 1rem; /* 16px */
         }
         
         .project-card {
@@ -63,20 +67,7 @@
             border-color: #3b82f6; /* Blue 500 */
         }
         
-        .card-video-placeholder {
-            aspect-ratio: 16 / 9;
-            background-color: #111827; /* Gray 900 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .card-video-placeholder::before {
-            content: 'Video Pendek Demo Proyek';
-            color: #6b7280; /* Gray 500 */
-            font-weight: 500;
-        }
+        /* Menghapus style placeholder video */
 
         .card-content {
             padding: 1.5rem; /* 24px */
@@ -109,22 +100,72 @@
                     Lihat Proyek
                 </a>
             </div>
+            
+            <!-- Social Media Links -->
+            <div class="mt-8 flex justify-center items-center gap-6">
+                <a href="#" aria-label="Instagram">
+                    <!-- Placeholder diganti dengan <img>. Ganti 'icon-instagram.svg' dengan path file Anda -->
+                    <img 
+                        src="instagram.png" 
+                        alt="Instagram" 
+                        class="w-6 h-6"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+                    <!-- Fallback jika gambar gagal dimuat -->
+                    <div style="display:none;" class="w-6 h-6 rounded-md border-2 border-gray-500 group-hover:border-white transition-colors duration-300 flex items-center justify-center text-xs font-bold">IG</div>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <!-- Placeholder diganti dengan <img>. Ganti 'icon-facebook.svg' dengan path file Anda -->
+                    <img 
+                        src="facebook.png" 
+                        alt="Facebook" 
+                        class="w-6 h-6"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+                    <!-- Fallback jika gambar gagal dimuat -->
+                    <div style="display:none;" class="w-6 h-6 rounded-md border-2 border-gray-500 group-hover:border-white transition-colors duration-300 flex items-center justify-center text-xs font-bold">FB</div>
+                </a>
+                <a href="#" aria-label="X (Twitter)">
+                    <!-- Placeholder diganti dengan <img>. Ganti 'icon-x.svg' dengan path file Anda -->
+                    <img 
+                        src="twitter.png" 
+                        alt="X (Twitter)" 
+                        class="w-6 h-6"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+                    <!-- Fallback jika gambar gagal dimuat -->
+                    <div style="display:none;" class="w-6 h-6 rounded-md border-2 border-gray-500 group-hover:border-white transition-colors duration-300 flex items-center justify-center text-xs font-bold">X</div>
+                </a>
+            </div>
         </header>
 
         <!-- Main Content: Project Carousel -->
         <main id="projects" class="w-full py-12 flex-grow flex items-center">
-            <div class="project-carousel w-full">
-                <div class="project-track lg:justify-center">
+            <!-- 
+              Perubahan: 
+              - Menghapus 'w-full' dari .project-carousel 
+              - Menambahkan 'w-full' ke .project-track 
+              Ini memastikan padding di dalam .project-track berfungsi dengan benar
+            -->
+            <div class="project-carousel">
+                <div class="project-track w-full lg:justify-center">
                     <!-- Project Card 1 -->
                     <div class="project-card">
-                        <div class="card-video-placeholder"></div>
+                        <!-- Placeholder diganti dengan tag <video> -->
+                        <video 
+                            class="w-full aspect-video bg-gray-900" 
+                            controls 
+                            preload="metadata" 
+                            src="URL_VIDEO_PROYEK_TIMBANGAN.mp4"
+                        >
+                            Browser Anda tidak mendukung tag video.
+                        </video>
                         <div class="card-content">
                             <h3 class="text-2xl font-bold text-white mb-2">Aplikasi Web Timbangan</h3>
                             <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
                                 <li>Sign-in dengan OAuth2 dan Two Factor Auth</li>
                                 <li>Pembuatan reporting</li>
                                 <li>Hak Akses dinamis</li>
-                                <li>Integrasi dengan printer dan alat penimbang</li>
                             </ul>
                             <h4 class="text-sm font-semibold text-gray-400 mb-2">Teknologi Pengembangan:</h4>
                             <p class="text-gray-200">Laravel, MySQL</p>
@@ -136,14 +177,22 @@
 
                     <!-- Project Card 2 -->
                     <div class="project-card">
-                        <div class="card-video-placeholder"></div>
+                        <!-- Placeholder diganti dengan tag <video> -->
+                        <video 
+                            class="w-full aspect-video bg-gray-900" 
+                            controls 
+                            preload="metadata" 
+                            src="URL_VIDEO_PROYEK_POS.mp4"
+                        >
+                            Browser Anda tidak mendukung tag video.
+                        </video>
                         <div class="card-content">
                             <h3 class="text-2xl font-bold text-white mb-2">Aplikasi Desktop POS MasterPOS</h3>
                             <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
                                 <li>Kirim pesan melalui email</li>
                                 <li>Dashboard visualisasi data dengan chart</li>
                                 <li>Pembuatan reporting dan nota</li>
-                                <li>Integrasi dengan printer dan scanner</li>
+                                <li>Integrasi dengan printer</li>
                             </ul>
                             <h4 class="text-sm font-semibold text-gray-400 mb-2">Teknologi Pengembangan:</h4>
                             <p class="text-gray-200">Java, SQLite, JasperReport</p>
@@ -153,9 +202,17 @@
                             <a href="#" class="w-full text-center block border border-gray-600 text-gray-300 font-medium py-2.5 rounded-md hover:bg-gray-700 transition-colors">Sumber Kode</a>
                         </div>
                     </div>
-                    <!-- Project Card 2 -->
+                    <!-- Project Card 3 -->
                     <div class="project-card">
-                        <div class="card-video-placeholder"></div>
+                        <!-- Placeholder diganti dengan tag <video> -->
+                        <video 
+                            class="w-full aspect-video bg-gray-900" 
+                            controls 
+                            preload="metadata" 
+                            src="URL_VIDEO_PROYEK_POS.mp4"
+                        >
+                            Browser Anda tidak mendukung tag video.
+                        </video>
                         <div class="card-content">
                             <h3 class="text-2xl font-bold text-white mb-2">Aplikasi Desktop Inventory</h3>
                             <h4 class="text-sm font-semibold text-gray-400 mb-2">Teknologi Pengembangan:</h4>
@@ -182,39 +239,85 @@
             
             // --- Manual Drag Functionality ---
             let isDragging = false;
-            let startX;
+            let startX, startY;
             let scrollLeft;
+            let isScrolling; // To lock gesture direction (vertical vs horizontal)
 
-            const startDrag = (e) => {
+            // --- Mouse Events (Desktop) ---
+            carousel.addEventListener('mousedown', (e) => {
                 isDragging = true;
-                // Prevent default drag behavior (e.g., image ghosting)
-                e.preventDefault();
-                // Use pageX for both mouse and touch events
-                startX = (e.pageX || e.touches[0].pageX) - carousel.offsetLeft;
+                isScrolling = false; // Mouse drag is always horizontal
+                startX = e.pageX - carousel.offsetLeft;
                 scrollLeft = carousel.scrollLeft;
-            };
+                carousel.style.cursor = 'grabbing';
+            });
 
-            const stopDrag = () => {
+            carousel.addEventListener('mouseleave', () => {
                 isDragging = false;
-            };
-            
-            const onDrag = (e) => {
+                carousel.style.cursor = 'grab';
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDragging = false;
+                carousel.style.cursor = 'grab';
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
                 if (!isDragging) return;
-                const x = (e.pageX || e.touches[0].pageX) - carousel.offsetLeft;
+                e.preventDefault(); // Prevent text selection while dragging
+                const x = e.pageX - carousel.offsetLeft;
                 const walk = (x - startX) * 2; // Multiplier for faster scrolling
                 carousel.scrollLeft = scrollLeft - walk;
-            };
+            });
 
-            // Mouse events
-            carousel.addEventListener('mousedown', startDrag);
-            carousel.addEventListener('mouseup', stopDrag);
-            carousel.addEventListener('mouseleave', stopDrag);
-            carousel.addEventListener('mousemove', onDrag);
+            // --- Touch Events (Mobile) ---
+            carousel.addEventListener('touchstart', (e) => {
+                // Ignore touchstart if it's on a video control
+                if (e.target.closest('video')) return; 
 
-            // Touch events for mobile
-            carousel.addEventListener('touchstart', startDrag);
-            carousel.addEventListener('touchend', stopDrag);
-            carousel.addEventListener('touchmove', onDrag);
+                isDragging = false; // Reset drag state
+                isScrolling = false; // Reset scroll lock
+                startX = e.touches[0].pageX - carousel.offsetLeft;
+                startY = e.touches[0].pageY;
+                scrollLeft = carousel.scrollLeft;
+            });
+
+            carousel.addEventListener('touchend', () => {
+                isDragging = false;
+                isScrolling = false;
+            });
+
+            carousel.addEventListener('touchmove', (e) => {
+                // Ignore touchmove if it's on a video control
+                if (e.target.closest('video')) return; 
+                if (isScrolling) return; // If we've decided it's a vertical scroll, do nothing
+
+                if (!isDragging) {
+                    // This is the first move. Decide if it's horizontal or vertical.
+                    const currentX = e.touches[0].pageX;
+                    const currentY = e.touches[0].pageY;
+                    
+                    const deltaX = Math.abs(currentX - (startX + carousel.offsetLeft));
+                    const deltaY = Math.abs(currentY - startY);
+
+                    // Check if horizontal movement is significant
+                    if (deltaX > deltaY + 5) { // 5px threshold to favor vertical
+                        isDragging = true; // It's a horizontal drag
+                    } else if (deltaY > deltaX) {
+                        isScrolling = true; // It's a vertical scroll
+                        return; // Let the browser handle vertical scroll
+                    } else {
+                        return; // Not enough movement to decide
+                    }
+                }
+
+                // If we are here, isDragging is true (it's a horizontal drag)
+                e.preventDefault(); // IMPORTANT: Prevent the browser's vertical scroll
+                
+                const x = e.touches[0].pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
         });
     </script>
 
