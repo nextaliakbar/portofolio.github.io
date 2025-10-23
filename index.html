@@ -29,9 +29,6 @@
         cursor: grab;
         overflow-x: scroll; /* Enable horizontal scrolling */
         user-select: none;
-        /* Efek mask/shadow dihapus untuk tampilan mobile yang lebih bersih */
-        /* -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); */
-        /* mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent); */
         scrollbar-width: none; /* Hide scrollbar for Firefox */
       }
 
@@ -46,11 +43,24 @@
       .project-track {
         display: flex;
         gap: 1.5rem; /* 24px */
-        /* The lg:justify-center class added in the HTML will center the content on large screens */
         /* Menambahkan padding horizontal agar kartu tidak menempel di tepi layar mobile */
         padding-left: 1rem; /* 16px */
         padding-right: 1rem; /* 16px */
       }
+      
+      /* Di layar 'lg' (desktop), kita menggunakan 'justify-center' 
+        Ini akan otomatis menangani centering JIKA total lebar konten
+        lebih kecil dari lebar layar.
+      */
+      @media (min-width: 1024px) {
+        .project-track {
+          padding-left: 1.5rem; /* 24px */
+          padding-right: 1.5rem; /* 24px */
+          /* justify-center akan bekerja jika konten lebih kecil dari kontainer */
+          justify-content: center; 
+        }
+      }
+
 
       .project-card {
         flex-shrink: 0;
@@ -69,8 +79,6 @@
         transform: translateY(-5px);
         border-color: #3b82f6; /* Blue 500 */
       }
-
-      /* Menghapus style placeholder video */
 
       .card-content {
         padding: 1.5rem; /* 24px */
@@ -168,14 +176,13 @@
 
       <!-- Main Content: Project Carousel -->
       <main id="projects" class="w-full py-12 flex-grow flex items-center">
-        <!-- 
-              Perubahan: 
-              - Menghapus 'w-full' dari .project-carousel 
-              - Menambahkan 'w-full' ke .project-track 
-              Ini memastikan padding di dalam .project-track berfungsi dengan benar
-            -->
-        <div class="project-carousel">
-          <div class="project-track w-full lg:justify-center">
+        <div class="project-carousel w-full">
+          <!-- 
+            Kelas 'lg:justify-center' ditambahkan di sini.
+            Ini akan otomatis memusatkan kartu jika total lebarnya
+            lebih kecil dari lebar carousel di layar 'lg' (desktop).
+          -->
+          <div class="project-track w-full">
             <!-- Project Card 1 -->
             <div class="project-card">
               <!-- Placeholder diganti dengan tag <video> -->
@@ -249,6 +256,7 @@
                 >
               </div>
             </div>
+            
             <!-- Project Card 3 -->
             <div class="project-card">
               <!-- Placeholder diganti dengan tag <video> -->
@@ -256,7 +264,7 @@
                 class="w-full aspect-video bg-gray-900"
                 controls
                 preload="metadata"
-                src="URL_VIDEO_PROYEK_POS.mp4"
+                src="URL_VIDEO_PROYEK_INVENTORY.mp4"
               >
                 Browser Anda tidak mendukung tag video.
               </video>
@@ -298,6 +306,34 @@
       document.addEventListener("DOMContentLoaded", () => {
         const carousel = document.querySelector(".project-carousel");
 
+        // --- KODE BARU: Center Carousel on Desktop Load ---
+        function centerCarouselOnLoad() {
+          // Hanya jalankan di layar desktop (sesuai breakpoint 'lg' Tailwind)
+          if (window.innerWidth >= 1024) { 
+            const track = carousel.querySelector('.project-track');
+            if (!track) return;
+
+            // Dapatkan total lebar dari semua item di dalam track
+            const scrollWidth = track.scrollWidth;
+            // Dapatkan lebar yang terlihat dari container carousel
+            const clientWidth = carousel.clientWidth;
+
+            // Hanya geser jika total lebarnya lebih besar dari area terlihat
+            if (scrollWidth > clientWidth) {
+              // Hitung posisi tengah dan geser
+              // Ini akan memposisikan scroll sehingga area kiri dan kanan yang terpotong sama
+              carousel.scrollLeft = (scrollWidth - clientWidth) / 2;
+            }
+            // Jika scrollWidth <= clientWidth, kelas 'lg:justify-center'
+            // di .project-track akan otomatis menangani centering.
+          }
+        }
+
+        // Jalankan fungsi centering saat halaman selesai dimuat
+        centerCarouselOnLoad();
+        // --- AKHIR KODE BARU ---
+
+
         // --- Manual Drag Functionality ---
         let isDragging = false;
         let startX, startY;
@@ -334,7 +370,7 @@
         // --- Touch Events (Mobile) ---
         carousel.addEventListener("touchstart", (e) => {
           // Ignore touchstart if it's on a video control
-          if (e.target.closest("video")) return;
+          if (e.target.closest("video") && e.target.tagName !== 'VIDEO') return;
 
           isDragging = false; // Reset drag state
           isScrolling = false; // Reset scroll lock
@@ -350,15 +386,17 @@
 
         carousel.addEventListener("touchmove", (e) => {
           // Ignore touchmove if it's on a video control
-          if (e.target.closest("video")) return;
+          if (e.target.closest("video") && e.target.tagName !== 'VIDEO') return;
           if (isScrolling) return; // If we've decided it's a vertical scroll, do nothing
 
           if (!isDragging) {
             // This is the first move. Decide if it's horizontal or vertical.
             const currentX = e.touches[0].pageX;
             const currentY = e.touches[0].pageY;
-
-            const deltaX = Math.abs(currentX - (startX + carousel.offsetLeft));
+            
+            // Calculate distance moved in each direction
+            // Note: startX needs to be adjusted by offsetLeft for comparison
+            const deltaX = Math.abs(currentX - (startX + carousel.offsetLeft)); 
             const deltaY = Math.abs(currentY - startY);
 
             // Check if horizontal movement is significant
