@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -47,7 +47,7 @@
         padding-left: 1rem; /* 16px */
         padding-right: 1rem; /* 16px */
       }
-      
+
       /* Di layar 'lg' (desktop), kita menggunakan 'justify-center' 
         Ini akan otomatis menangani centering JIKA total lebar konten
         lebih kecil dari lebar layar.
@@ -57,10 +57,9 @@
           padding-left: 1.5rem; /* 24px */
           padding-right: 1.5rem; /* 24px */
           /* justify-center akan bekerja jika konten lebih kecil dari kontainer */
-          justify-content: center; 
+          justify-content: center;
         }
       }
-
 
       .project-card {
         flex-shrink: 0;
@@ -101,7 +100,7 @@
           Ali Akbar Rafsanjani
         </h1>
         <p class="mt-4 text-xl md:text-2xl font-medium text-gradient">
-          Software Developer
+          Software Developer Expert | IT Consultant
         </p>
         <div class="mt-8 flex justify-center items-center gap-4">
           <a
@@ -129,7 +128,10 @@
               src="instagram.png"
               alt="Instagram"
               class="w-6 h-6"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
             />
             <!-- Fallback jika gambar gagal dimuat -->
             <div
@@ -139,13 +141,19 @@
               IG
             </div>
           </a>
-          <a href="https://www.facebook.com/share/14LK16ETcV4/" aria-label="Facebook">
+          <a
+            href="https://www.facebook.com/share/14LK16ETcV4/"
+            aria-label="Facebook"
+          >
             <!-- Placeholder diganti dengan <img>. Ganti 'icon-facebook.svg' dengan path file Anda -->
             <img
               src="facebook.png"
               alt="Facebook"
               class="w-6 h-6"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
             />
             <!-- Fallback jika gambar gagal dimuat -->
             <div
@@ -155,13 +163,19 @@
               FB
             </div>
           </a>
-          <a href="https://www.linkedin.com/in/muhammad-ali-akbar-rafsanjani-541929309" aria-label="LinkedIn">
+          <a
+            href="https://www.linkedin.com/in/muhammad-ali-akbar-rafsanjani-541929309"
+            aria-label="LinkedIn"
+          >
             <!-- Placeholder diganti dengan <img>. Ganti 'icon-x.svg' dengan path file Anda -->
             <img
               src="linkedin.png"
               alt="LinkedIn"
               class="w-6 h-6"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
             />
             <!-- Fallback jika gambar gagal dimuat -->
             <div
@@ -182,8 +196,39 @@
             Ini akan otomatis memusatkan kartu jika total lebarnya
             lebih kecil dari lebar carousel di layar 'lg' (desktop).
           -->
-          <div class="project-track w-full">
+          <div class="project-track w-full mb-4">
             <!-- Project Card 1 -->
+            <div class="project-card">
+              <!-- Placeholder diganti dengan tag <video> -->
+              <video
+                class="w-full aspect-video bg-gray-900"
+                controls
+                preload="metadata"
+                src="Niaga Aja.mp4"
+              >
+                Browser Anda tidak mendukung tag video.
+              </video>
+              <div class="card-content">
+                <h3 class="text-2xl font-bold text-white mb-2">Niaga Aja</h3>
+                <span
+                  class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4"
+                >
+                  Building Start Up SaaS Inventory, POS, & Online Store
+                </span>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
+                  <li>Integrasi antara back office dan toko online</li>
+                  <li>Back office 100% dijalankan secara offline</li>
+                  <li>Support multi cabang usaha</li>
+                  <li>Support sistem kerja shift</li>
+                  <li>Khusus usaha FnB</li>
+                  <li>Hak Akses Owner & Staff</li>
+                  <li>Saat ini sedang versi beta</li>
+                  <li>Progres pengembangan ± 35%</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Project Card 2 -->
             <div class="project-card">
               <!-- Placeholder diganti dengan tag <video> -->
               <video
@@ -196,9 +241,11 @@
               </video>
               <div class="card-content">
                 <h3 class="text-2xl font-bold text-white mb-2">
-                  Aplikasi Web Timbangan
+                  Aplikasi Web Penimbang
                 </h3>
-                <span class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4">
+                <span
+                  class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4"
+                >
                   Internship | Kokola Group
                 </span>
                 <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
@@ -210,7 +257,9 @@
                 <h4 class="text-sm font-semibold text-gray-400 mb-2">
                   Teknologi Pengembangan:
                 </h4>
-                <p class="text-gray-200">Laravel, Livewire, JQuery, Bootstrap, MySQL</p>
+                <p class="text-gray-200">
+                  Laravel, Livewire, JQuery, Bootstrap, MySQL
+                </p>
               </div>
               <!-- <div class="card-footer">
                 <a
@@ -220,7 +269,46 @@
               </div> -->
             </div>
 
-            <!-- Project Card 2 -->
+            <!-- Project Card 3 -->
+            <div class="project-card">
+              <!-- Placeholder diganti dengan tag <video> -->
+              <video
+                class="w-full aspect-video bg-gray-900"
+                controls
+                preload="metadata"
+                src="Presen App.mp4"
+              >
+                Browser Anda tidak mendukung tag video.
+              </video>
+              <div class="card-content">
+                <h3 class="text-2xl font-bold text-white mb-2">
+                  Aplikasi Mobile Presensi
+                </h3>
+                <span
+                  class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4"
+                >
+                  Project Based Learning
+                </span>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
+                  <li>Integrasi Google Maps</li>
+                </ul>
+                <h4 class="text-sm font-semibold text-gray-400 mb-2">
+                  Teknologi Pengembangan:
+                </h4>
+                <p class="text-gray-200">Flutter, SQLite</p>
+              </div>
+              <div class="card-footer flex gap-4">
+                <a
+                  href="https://github.com/nextaliakbar/presen_app.git"
+                  class="w-full text-center block border border-gray-600 text-gray-300 font-medium py-2.5 rounded-md hover:bg-gray-700 transition-colors"
+                  >Sumber Kode</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="project-track w-full">
+            <!-- Project Card 4 -->
             <div class="project-card">
               <!-- Placeholder diganti dengan tag <video> -->
               <video
@@ -235,7 +323,9 @@
                 <h3 class="text-2xl font-bold text-white mb-2">
                   Aplikasi Desktop MasterPOS
                 </h3>
-                <span class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4">
+                <span
+                  class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4"
+                >
                   Project Based Learning
                 </span>
                 <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
@@ -254,15 +344,17 @@
                 <a
                   href="https://drive.google.com/drive/folders/1s_jWoduG1k-U-gXQSx0VPyGuiCjRPqoA?usp=drive_link"
                   class="w-full text-center block bg-gray-700 text-white font-medium py-2.5 rounded-md hover:bg-gray-600 transition-colors"
-                  >Download Aplikasi</a>
+                  >Download Aplikasi</a
+                >
                 <a
                   href="https://github.com/nextaliakbar/Aplikasi-Desktop-MasterPOS-V2"
                   class="w-full text-center block border border-gray-600 text-gray-300 font-medium py-2.5 rounded-md hover:bg-gray-700 transition-colors"
-                  >Sumber Kode</a>
+                  >Sumber Kode</a
+                >
               </div>
             </div>
-            
-            <!-- Project Card 3 -->
+
+            <!-- Project Card 5 -->
             <div class="project-card">
               <!-- Placeholder diganti dengan tag <video> -->
               <video
@@ -277,7 +369,9 @@
                 <h3 class="text-2xl font-bold text-white mb-2">
                   Aplikasi Desktop Inventory
                 </h3>
-                <span class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4">
+                <span
+                  class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4"
+                >
                   Project Based Learning
                 </span>
                 <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
@@ -297,7 +391,8 @@
                 <a
                   href="https://github.com/nextaliakbar/Aplikasi-Desktop-Inventory-V2"
                   class="w-full text-center block border border-gray-600 text-gray-300 font-medium py-2.5 rounded-md hover:bg-gray-700 transition-colors"
-                  >Sumber Kode</a>
+                  >Sumber Kode</a
+                >
               </div>
             </div>
           </div>
@@ -319,8 +414,8 @@
         // --- KODE BARU: Center Carousel on Desktop Load ---
         function centerCarouselOnLoad() {
           // Hanya jalankan di layar desktop (sesuai breakpoint 'lg' Tailwind)
-          if (window.innerWidth >= 1024) { 
-            const track = carousel.querySelector('.project-track');
+          if (window.innerWidth >= 1024) {
+            const track = carousel.querySelector(".project-track");
             if (!track) return;
 
             // Dapatkan total lebar dari semua item di dalam track
@@ -342,7 +437,6 @@
         // Jalankan fungsi centering saat halaman selesai dimuat
         centerCarouselOnLoad();
         // --- AKHIR KODE BARU ---
-
 
         // --- Manual Drag Functionality ---
         let isDragging = false;
@@ -380,7 +474,7 @@
         // --- Touch Events (Mobile) ---
         carousel.addEventListener("touchstart", (e) => {
           // Ignore touchstart if it's on a video control
-          if (e.target.closest("video") && e.target.tagName !== 'VIDEO') return;
+          if (e.target.closest("video") && e.target.tagName !== "VIDEO") return;
 
           isDragging = false; // Reset drag state
           isScrolling = false; // Reset scroll lock
@@ -396,17 +490,17 @@
 
         carousel.addEventListener("touchmove", (e) => {
           // Ignore touchmove if it's on a video control
-          if (e.target.closest("video") && e.target.tagName !== 'VIDEO') return;
+          if (e.target.closest("video") && e.target.tagName !== "VIDEO") return;
           if (isScrolling) return; // If we've decided it's a vertical scroll, do nothing
 
           if (!isDragging) {
             // This is the first move. Decide if it's horizontal or vertical.
             const currentX = e.touches[0].pageX;
             const currentY = e.touches[0].pageY;
-            
+
             // Calculate distance moved in each direction
             // Note: startX needs to be adjusted by offsetLeft for comparison
-            const deltaX = Math.abs(currentX - (startX + carousel.offsetLeft)); 
+            const deltaX = Math.abs(currentX - (startX + carousel.offsetLeft));
             const deltaY = Math.abs(currentY - startY);
 
             // Check if horizontal movement is significant
