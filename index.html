@@ -24,16 +24,15 @@
         -webkit-text-fill-color: transparent;
       }
 
-      /* --- Project Slider/Carousel Styles --- */
       .project-carousel {
         cursor: grab;
-        overflow-x: scroll; /* Enable horizontal scrolling */
+        overflow-x: scroll;
         user-select: none;
-        scrollbar-width: none; /* Hide scrollbar for Firefox */
+        scrollbar-width: none;
       }
 
       .project-carousel::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+        display: none;
       }
 
       .project-carousel:active {
@@ -42,32 +41,25 @@
 
       .project-track {
         display: flex;
-        gap: 1.5rem; /* 24px */
-        /* Menambahkan padding horizontal agar kartu tidak menempel di tepi layar mobile */
-        padding-left: 1rem; /* 16px */
-        padding-right: 1rem; /* 16px */
+        gap: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
-
-      /* Di layar 'lg' (desktop), kita menggunakan 'justify-center' 
-        Ini akan otomatis menangani centering JIKA total lebar konten
-        lebih kecil dari lebar layar.
-      */
       @media (min-width: 1024px) {
         .project-track {
-          padding-left: 1.5rem; /* 24px */
-          padding-right: 1.5rem; /* 24px */
-          /* justify-center akan bekerja jika konten lebih kecil dari kontainer */
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
           justify-content: center;
         }
       }
 
       .project-card {
         flex-shrink: 0;
-        width: 90%; /* For mobile view */
+        width: 90%;
         max-width: 420px;
-        border-radius: 0.75rem; /* 12px */
-        background-color: rgba(17, 24, 39, 0.8); /* Gray 900 with opacity */
-        border: 1px solid #374151; /* Gray 700 */
+        border-radius: 0.75rem;
+        background-color: rgba(17, 24, 39, 0.8);
+        border: 1px solid #374151;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -76,17 +68,17 @@
 
       .project-card:hover {
         transform: translateY(-5px);
-        border-color: #3b82f6; /* Blue 500 */
+        border-color: #3b82f6;
       }
 
       .card-content {
-        padding: 1.5rem; /* 24px */
+        padding: 1.5rem;
       }
 
       .card-footer {
-        padding: 1.5rem; /* 24px */
-        margin-top: auto; /* Push footer to the bottom */
-        border-top: 1px solid #374151; /* Gray 700 */
+        padding: 1.5rem;
+        margin-top: auto;
+        border-top: 1px solid #374151;
       }
     </style>
   </head>
@@ -103,12 +95,6 @@
           Software Developer Expert | IT Consultant
         </p>
         <div class="mt-8 flex justify-center items-center gap-4">
-          <!-- <a
-            href="mailto:emailanda@contoh.com"
-            class="bg-blue-600 text-white font-semibold px-6 py-2.5 rounded-md hover:bg-blue-700 transition-colors duration-300"
-          >
-            Hubungi Saya -->
-          </a>
           <a
             href="#projects"
             class="border border-gray-600 text-gray-200 font-semibold px-6 py-2.5 rounded-md hover:bg-gray-800 hover:border-gray-500 transition-colors duration-300"
@@ -123,7 +109,6 @@
             href="https://www.instagram.com/muhmdaliakbar_raf?igsh=MWNhMHVzN214emE2dg=="
             aria-label="Instagram"
           >
-            <!-- Placeholder diganti dengan <img>. Ganti 'icon-instagram.svg' dengan path file Anda -->
             <img
               src="instagram.png"
               alt="Instagram"
@@ -133,7 +118,6 @@
                 this.nextElementSibling.style.display = 'flex';
               "
             />
-            <!-- Fallback jika gambar gagal dimuat -->
             <div
               style="display: none"
               class="w-6 h-6 rounded-md border-2 border-gray-500 group-hover:border-white transition-colors duration-300 flex items-center justify-center text-xs font-bold"
@@ -145,7 +129,6 @@
             href="https://www.facebook.com/share/14LK16ETcV4/"
             aria-label="Facebook"
           >
-            <!-- Placeholder diganti dengan <img>. Ganti 'icon-facebook.svg' dengan path file Anda -->
             <img
               src="facebook.png"
               alt="Facebook"
@@ -155,7 +138,6 @@
                 this.nextElementSibling.style.display = 'flex';
               "
             />
-            <!-- Fallback jika gambar gagal dimuat -->
             <div
               style="display: none"
               class="w-6 h-6 rounded-md border-2 border-gray-500 group-hover:border-white transition-colors duration-300 flex items-center justify-center text-xs font-bold"
@@ -167,7 +149,6 @@
             href="https://www.linkedin.com/in/muhammad-ali-akbar-rafsanjani-541929309"
             aria-label="LinkedIn"
           >
-            <!-- Placeholder diganti dengan <img>. Ganti 'icon-x.svg' dengan path file Anda -->
             <img
               src="linkedin.png"
               alt="LinkedIn"
@@ -177,7 +158,6 @@
                 this.nextElementSibling.style.display = 'flex';
               "
             />
-            <!-- Fallback jika gambar gagal dimuat -->
             <div
               style="display: none"
               class="w-6 h-6 rounded-md border-2 border-gray-500 group-hover:border-white transition-colors duration-300 flex items-center justify-center text-xs font-bold"
@@ -191,20 +171,48 @@
       <!-- Main Content: Project Carousel -->
       <main id="projects" class="w-full py-12 flex-grow flex items-center">
         <div class="project-carousel w-full">
-          <!-- 
-            Kelas 'lg:justify-center' ditambahkan di sini.
-            Ini akan otomatis memusatkan kartu jika total lebarnya
-            lebih kecil dari lebar carousel di layar 'lg' (desktop).
-          -->
           <div class="project-track w-full mb-4">
             <!-- Project Card 1 -->
             <div class="project-card">
-              <!-- Placeholder diganti dengan tag <video> -->
               <video
                 class="w-full aspect-video bg-gray-900"
                 controls
                 preload="metadata"
-                src="Niaga Aja.mp4"
+                src="CMS-Website-Sekolah.webm"
+              >
+                Browser Anda tidak mendukung tag video.
+              </video>
+              <div class="card-content">
+                <h3 class="text-2xl font-bold text-white mb-2">CMS Website Sekolah</h3>
+                <span
+                  class="inline-block bg-blue-600/20 text-blue-300 text-xs font-medium px-2.5 py-0.5 rounded-full mb-4"
+                >
+                  Freelance Project
+                </span>
+                <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
+                  <li>Optimasi Performa SEO</li>
+                  <li>Frontend Editor</li>
+                  <li>Tracking Performa Website</li>
+                  <li>Multi User</li>
+                  <li>Kontrol Akses User</li>
+                  <li>Kustom Editing Modul</li>
+                  <li>5 Tema Website</li>
+                  <li>Sign-in dengan OAuth2</li>
+                </ul>
+                <h4 class="text-sm font-semibold text-gray-400 mb-2">
+                  Teknologi Pengembangan:
+                </h4>
+                <p class="text-gray-200">Laravel, React.js, Tailwind CSS, MySQL</p>
+              </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+              <video
+                class="w-full aspect-video bg-gray-900"
+                controls
+                preload="metadata"
+                src="Niaga-Aja.webm"
               >
                 Browser Anda tidak mendukung tag video.
               </video>
@@ -225,17 +233,20 @@
                   <li>Saat ini sedang versi beta</li>
                   <li>Progres pengembangan ± 35%</li>
                 </ul>
+                <h4 class="text-sm font-semibold text-gray-400 mb-2">
+                  Teknologi Pengembangan:
+                </h4>
+                <p class="text-gray-200">Flutter, Laravel, SQLite, MySQL</p>
               </div>
             </div>
 
-            <!-- Project Card 2 -->
+            <!-- Project Card 3 -->
             <div class="project-card">
-              <!-- Placeholder diganti dengan tag <video> -->
               <video
                 class="w-full aspect-video bg-gray-900"
                 controls
                 preload="metadata"
-                src="WeightApp Demo.mp4"
+                src="WeightApp-Demo.webm"
               >
                 Browser Anda tidak mendukung tag video.
               </video>
@@ -261,22 +272,17 @@
                   Laravel, Livewire, JQuery, Bootstrap, MySQL
                 </p>
               </div>
-              <!-- <div class="card-footer">
-                <a
-                  href="#"
-                  class="w-full text-center block bg-gray-700 text-white font-medium py-2.5 rounded-md hover:bg-gray-600 transition-colors"
-                  >Link Aplikasi</a>
-              </div> -->
             </div>
+          </div>
 
-            <!-- Project Card 3 -->
+          <div class="project-track w-full">
+            <!-- Project Card 4 -->
             <div class="project-card">
-              <!-- Placeholder diganti dengan tag <video> -->
               <video
                 class="w-full aspect-video bg-gray-900"
                 controls
                 preload="metadata"
-                src="Presen App.mp4"
+                src="Presen-App.webm"
               >
                 Browser Anda tidak mendukung tag video.
               </video>
@@ -305,17 +311,13 @@
                 >
               </div>
             </div>
-          </div>
-
-          <div class="project-track w-full">
-            <!-- Project Card 4 -->
+            <!-- Project Card 5 -->
             <div class="project-card">
-              <!-- Placeholder diganti dengan tag <video> -->
               <video
                 class="w-full aspect-video bg-gray-900"
                 controls
                 preload="metadata"
-                src="MasterPOS Demo.mp4"
+                src="MasterPOS-Demo.webm"
               >
                 Browser Anda tidak mendukung tag video.
               </video>
@@ -353,15 +355,13 @@
                 >
               </div>
             </div>
-
-            <!-- Project Card 5 -->
+            <!-- Project Card 6 -->
             <div class="project-card">
-              <!-- Placeholder diganti dengan tag <video> -->
               <video
                 class="w-full aspect-video bg-gray-900"
                 controls
                 preload="metadata"
-                src="Inventory Demo.mp4"
+                src="Inventory-Demo.webm"
               >
                 Browser Anda tidak mendukung tag video.
               </video>
@@ -403,51 +403,32 @@
       <footer
         class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-center text-gray-500"
       >
-        <p>Copyright 2025 Ali Akbar Rafsanjani</p>
+        <p>Copyright 2026 Ali Akbar Rafsanjani</p>
       </footer>
     </div>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const carousel = document.querySelector(".project-carousel");
-
-        // --- KODE BARU: Center Carousel on Desktop Load ---
         function centerCarouselOnLoad() {
-          // Hanya jalankan di layar desktop (sesuai breakpoint 'lg' Tailwind)
           if (window.innerWidth >= 1024) {
             const track = carousel.querySelector(".project-track");
             if (!track) return;
-
-            // Dapatkan total lebar dari semua item di dalam track
             const scrollWidth = track.scrollWidth;
-            // Dapatkan lebar yang terlihat dari container carousel
             const clientWidth = carousel.clientWidth;
-
-            // Hanya geser jika total lebarnya lebih besar dari area terlihat
             if (scrollWidth > clientWidth) {
-              // Hitung posisi tengah dan geser
-              // Ini akan memposisikan scroll sehingga area kiri dan kanan yang terpotong sama
               carousel.scrollLeft = (scrollWidth - clientWidth) / 2;
             }
-            // Jika scrollWidth <= clientWidth, kelas 'lg:justify-center'
-            // di .project-track akan otomatis menangani centering.
           }
         }
-
-        // Jalankan fungsi centering saat halaman selesai dimuat
         centerCarouselOnLoad();
-        // --- AKHIR KODE BARU ---
-
-        // --- Manual Drag Functionality ---
         let isDragging = false;
         let startX, startY;
         let scrollLeft;
-        let isScrolling; // To lock gesture direction (vertical vs horizontal)
-
-        // --- Mouse Events (Desktop) ---
+        let isScrolling;
         carousel.addEventListener("mousedown", (e) => {
           isDragging = true;
-          isScrolling = false; // Mouse drag is always horizontal
+          isScrolling = false;
           startX = e.pageX - carousel.offsetLeft;
           scrollLeft = carousel.scrollLeft;
           carousel.style.cursor = "grabbing";
@@ -465,19 +446,17 @@
 
         carousel.addEventListener("mousemove", (e) => {
           if (!isDragging) return;
-          e.preventDefault(); // Prevent text selection while dragging
+          e.preventDefault();
           const x = e.pageX - carousel.offsetLeft;
-          const walk = (x - startX) * 2; // Multiplier for faster scrolling
+          const walk = (x - startX) * 2;
           carousel.scrollLeft = scrollLeft - walk;
         });
 
-        // --- Touch Events (Mobile) ---
         carousel.addEventListener("touchstart", (e) => {
-          // Ignore touchstart if it's on a video control
           if (e.target.closest("video") && e.target.tagName !== "VIDEO") return;
 
-          isDragging = false; // Reset drag state
-          isScrolling = false; // Reset scroll lock
+          isDragging = false;
+          isScrolling = false;
           startX = e.touches[0].pageX - carousel.offsetLeft;
           startY = e.touches[0].pageY;
           scrollLeft = carousel.scrollLeft;
@@ -489,35 +468,24 @@
         });
 
         carousel.addEventListener("touchmove", (e) => {
-          // Ignore touchmove if it's on a video control
           if (e.target.closest("video") && e.target.tagName !== "VIDEO") return;
-          if (isScrolling) return; // If we've decided it's a vertical scroll, do nothing
+          if (isScrolling) return;
 
           if (!isDragging) {
-            // This is the first move. Decide if it's horizontal or vertical.
             const currentX = e.touches[0].pageX;
             const currentY = e.touches[0].pageY;
-
-            // Calculate distance moved in each direction
-            // Note: startX needs to be adjusted by offsetLeft for comparison
             const deltaX = Math.abs(currentX - (startX + carousel.offsetLeft));
             const deltaY = Math.abs(currentY - startY);
-
-            // Check if horizontal movement is significant
             if (deltaX > deltaY + 5) {
-              // 5px threshold to favor vertical
-              isDragging = true; // It's a horizontal drag
+              isDragging = true;
             } else if (deltaY > deltaX) {
-              isScrolling = true; // It's a vertical scroll
-              return; // Let the browser handle vertical scroll
+              isScrolling = true;
+              return;
             } else {
-              return; // Not enough movement to decide
+              return;
             }
           }
-
-          // If we are here, isDragging is true (it's a horizontal drag)
-          e.preventDefault(); // IMPORTANT: Prevent the browser's vertical scroll
-
+          e.preventDefault();
           const x = e.touches[0].pageX - carousel.offsetLeft;
           const walk = (x - startX) * 2;
           carousel.scrollLeft = scrollLeft - walk;
